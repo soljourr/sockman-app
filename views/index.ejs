@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sock Man Sock Man Yeah That's Me</title>
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="stylesheet" href="font-awesome.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Sock Man Sock Man Yeah That's Me</h1>
+  <h2>Display Your Sock of the Day</h2>
+  <h2>Post Your Hoes(ieres) here?</h2>
+  <p>Post your name, a picture of your socks of the day, and a description.</p>
+
+<!-- IMAGE UPLOAD -->
+  <form action="/sockfeed" enctype="multipart/form-data" method="post">
+    <input type="file" name="sockPic">
+    <input type="text" placeholder="Name" name="name">
+    <input type="text" placeholder="Sock Description" name="description">
+    <input type="submit" value="Upload">
+  </form>
+
+  <section>
+    <!-- POST UPLOAD-->
+    <h3>Le Sock Farm</h3>
+    <ul class="sock-posts">
+    <% for(var i=0; i<sockPosts.length; i++) {%>
+      <li id="<%= sockPosts[i]._id %>" class="sock-posts">
+        <span><%= sockPosts[i].name %></span>
+        <span><%= sockPosts[i].description %></span>
+        <img src="img/uploads/<%= sockPosts[i].image %>" alt=""><span><%= sockPosts[i].image %></span>
+      </li>
+    <% } %>
+    </ul>
+
+  </section>
+
+
+  <script src="main.js"></script>
+
+</body>
+</html>
